@@ -1,0 +1,198 @@
+/* Estilo geral */
+body {
+    background-color: black;
+    margin: 0; 
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-family: Arial, sans-serif;
+    overflow: hidden; 
+}
+
+/* Estilos para o paragrafo*/
+p {
+    margin: 0;
+    font-weight: normal; 
+}
+
+/* Estilo do contêiner principal */
+.container1 {
+    width: 100%;
+    height: 100%;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+        "menu menu menu"
+        "principal principal principal"
+        "footer footer footer"; 
+
+    /* Animação de abertura */
+    opacity: 0; 
+    transform: scale(0.9); 
+    animation: fadeInScale 1s ease-out forwards;
+}
+
+/* Estilo do menu */
+.menu {
+    grid-area: menu; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: #C800FF; 
+    padding: 0 20px; 
+    box-sizing: border-box; 
+}
+
+.menu .logo img {
+    width: 200px; 
+    height: auto; 
+    margin-left: 50px; 
+}
+
+.menu nav {
+    margin-right: 50px; 
+}
+
+/* Estilo para todos os botões */
+button, .buttons button {
+    padding: 10px 20px; 
+    font-size: 18px; 
+    cursor: pointer;
+    border: none; 
+    border-radius: 5px; 
+    background-color: whitesmoke;
+    color: #C800FF; 
+    transition: background-color 0.3s;
+}
+
+button:hover, .buttons button:hover {
+    background-color: #C800FF; 
+    color: white; 
+}
+
+/* Estilo dos links que são botões */
+.buttons a {
+    display: inline-block; 
+    margin: 5px; 
+    padding: 10px 20px; 
+    font-size: 18px; 
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #C800FF; 
+    color: white; 
+    text-decoration: none; 
+    transition: background-color 0.3s; 
+}
+
+.buttons a:hover {
+    background-color: #A300D7;
+}
+
+/* Estilo para o contêiner da imagem e botões */
+#imagemContainer {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}
+
+#imagemContainer img {
+    width: 200px;
+    height: auto;
+}
+
+/* Estilo específico para o botão principal */
+#botao {
+    height: 90px;
+    width: 90px; 
+    border: none;
+    background: transparent; 
+    cursor: pointer;
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    position: relative;
+    transition: transform 0.3s ease;
+    top: 25%;
+    left: 45%;
+}
+
+#botao img {
+    width: 100%; 
+    height: auto; 
+}
+
+#botao:hover img {
+    transform: scale(1.1); /* Aumenta a escala da imagem ao passar o mouse */
+}
+
+/* Estilo do container do botao principal, para criar um limite ate onde ele pode rodar */
+#container {
+    position: relative; 
+    width: 90vw; 
+    height: 70vh; 
+    padding: 5px; 
+    overflow: hidden; 
+}
+
+/* Estilo do conteúdo principal */
+.principal {
+    grid-area: principal; 
+    background-color: black; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+
+/* Estilo do rodapé */
+footer {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    grid-area: footer; 
+    background-color: #C800FF; 
+    color: #ffffff;
+    padding: 5px; 
+    text-align: center; 
+    position: relative; 
+}
+
+/* Estilo da imagem para recomendação*/
+#imagem {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5); 
+    width: 200px; 
+    height: auto;
+    display: none;
+    animation: zoomIn 1s forwards; 
+}
+
+/* Animação de zoom-in na imagem*/
+@keyframes zoomIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.5); /* Começa com a imagem menor e centralizada */
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1); /* Termina com a imagem em tamanho normal e centralizada */
+        opacity: 1; 
+    }
+}
+
+/* Animação de fade-in e scale na abertura*/
+@keyframes fadeInScale {
+    from {
+        opacity: 0; 
+        transform: scale(0.9); /* Começa com escala menor */
+    }
+    to {
+        opacity: 1; 
+        transform: scale(1); /* Termina com escala normal */
+    }
+}
